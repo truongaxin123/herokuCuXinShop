@@ -1,0 +1,40 @@
+article {
+    text-align: center;
+    margin: 77px;
+}
+
+.joke__title {
+    font-family: 'Pattaya', sans-serif;
+    font-size: 77px;
+}
+
+.joke__content {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.button {
+    margin-top: 17px;
+    padding: 10px 20px;
+    letter-spacing: 2px;
+    font-size: 15px;
+    width: 277px;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid black;
+    font-family: 'Raleway', sans-serif;
+    color: black;
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+.button:hover {
+    background-color: black;
+    color: white;
+}
