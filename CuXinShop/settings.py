@@ -26,7 +26,7 @@ SECRET_KEY = '14z5ey+hya$4sn*#u(i9v#-xo%knyjd3s94j8=d!qt#_)9vo3%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://cuxinshop.herokuapp.com/']
 
 
 # Application definition
