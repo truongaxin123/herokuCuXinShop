@@ -1,0 +1,56 @@
+{% extends "theblog/base.html" %}
+{% load static %}
+
+{% block title %}
+{{ tag.tag_full_name }} | Cu Xin Shop
+{% endblock%}
+
+{% block meta %}
+<meta name="Description" content="Nơi chứa danh sách bài viết có chưa tag {{ tag.tag_full_name }}">
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'theblog/css/view_all_article.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Athiti:wght@300&family=Cormorant+Garamond&family=Pattaya&family=Questrial&display=swap" rel="stylesheet">
+{% endblock%}
+
+
+{% block main %}
+<section class="header">
+    <div class="header__tag">
+        <p>#{{ tag.tag_name }}</p>
+    </div>
+    <div class="header__title">
+        <h1>{{ tag.tag_full_name }}</h1>
+    </div>
+    <div class="header__number-article">
+        <p>{{ articles.count }} Articles</p>
+    </div>
+</section>
+<section class="article-container">
+    {% for article in articles %}
+    <div class="article">
+        <div class="article__thumbnail" style="background-image: url({{ article.thumbnail_image.url }}); width: 200px;">
+        </div>
+        <div class="article__content">
+            <div class="article__tag">
+                <ul>
+                {% for tag in article.tags.all %}
+                    <li><a href="{% url 'theblog:detail_tag' tag.tag_name %}">#{{tag.tag_name}}</a></li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="article__title-article">
+                <p>{{ article.title }}</p>
+            </div>
+            <div class="article__descrip">
+                <p>{{ article.content|striptags|safe|truncatewords:20 }}</p>
+            </div>
+            <div class="article__button-seemore">
+                <a href="{% url 'theblog:detail_article' article.slug %}" class="button-seemore">Nhấm nháp thêm</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}

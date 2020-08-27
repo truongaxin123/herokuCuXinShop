@@ -1,0 +1,94 @@
+.comment {
+    max-width: 87%;
+    margin: 77px auto;
+}
+
+.comment__header {
+    font-family: 'Athiti', sans-serif;
+    font-size: 27px;
+}
+
+.comment__cmt {
+    display: inline-block;
+    border: 1px solid #000;
+    padding: 17px;
+    margin-right: 17px;
+    margin-top: 17px;
+}
+
+.comment__info {
+    padding-bottom: 7px;
+    border-bottom: 1px solid #000;
+}
+
+.comment__info__username {
+    font-family: "Montserrat", "sans-serif";
+    display: inline;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.comment__info__datepub {
+    display: inline;
+    font-family: 'Raleway', sans-serif;
+    margin-left: 7px;
+}
+
+.comment__content {
+    margin-top: 7px;
+}
+
+.comment__content__cnt {
+    font-family: "Montserrat", "sans-serif";
+    font-style: italic;
+}
+
+/* ##### leave comment ##### */
+
+.leave-comment {
+    padding: 37px 97px;
+    transition: .3s all;
+}
+
+.leave-comment__title {
+    font-family: "Montserrat", "sans-serif";
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.leave-comment__textbox {
+    margin-top: 27px;
+}
+
+.leave-comment__textbox textarea{
+    width: 67%;
+    height: 97px;
+    font-size: 17px;
+    padding: 7px;
+    border: 1px solid #000;
+    resize: none;
+    font-family: "Montserrat", "sans-serif";
+}
+
+.leave-comment__textbox textarea:focus {
+    outline: none;
+}
+
+.leave-comment__textbox textarea::-webkit-scrollbar {
+    width: 7px;
+}
+
+.leave-comment__textbox textarea::-webkit-scrollbar-thumb {
+    background-color: black;
+}
+
+input.button {
+    margin-top: 7px;
+    background: white;
+    border-radius: 0px;
+}
+
+body {
+    transition: 0.5 all;
+}
+

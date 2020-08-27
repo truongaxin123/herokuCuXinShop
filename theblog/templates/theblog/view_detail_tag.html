@@ -1,0 +1,33 @@
+{% extends "theblog/base.html" %}
+{% load static %}
+
+{% block title %}
+{{ tag.tag_full_name }} | Cu Xin Shop
+{% endblock %}
+
+{% block meta %}
+<meta name="Description" content="Mô tả chi tiết về nội dung của tag {{ tag.tag_full_name }}">
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'theblog/css/view_detail_tag.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@300&family=Cormorant+Garamond&family=Pattaya&family=Questrial&display=swap" rel="stylesheet"></head>
+{% endblock %}
+
+{% block main %}
+<article>
+    <header class="tag-overview">
+        <div class="tag-overview__tag-name"><p>#{{ tag.tag_name }}</p></div>
+        <div class="tag-overview__tag-full-name"><h1>{{ tag.tag_full_name }}</h1></div>
+        <div class="tag-overview__pubdate"><p>Public time | {{ tag.pub_date|date:'H:i d-m-Y' }} | View {{ tag.view }}</p></div>
+    </header>
+    <section class="description">
+        <p class="description__content">
+            {{ tag.description }}
+        </p>
+    </section>
+</article>
+
+{% endblock %}

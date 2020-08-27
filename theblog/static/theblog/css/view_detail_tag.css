@@ -1,0 +1,34 @@
+section {
+    max-width: 77%;
+    margin: 0 auto;
+    padding-top: 77px;
+}
+
+.tag-overview {
+    margin-top: 77px;
+    text-align: center;
+}
+
+.tag-overview__tag-name {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.tag-overview__tag-full-name {
+    font-family: 'Pattaya', sans-serif;
+    font-size: 77px;
+}
+
+.tag-overview__pubdate {
+    font-family: 'Athiti', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.description__content {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv=”content-language” content=”vi” />
+    <meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″ />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='revisit-after' content='1 days' />
+    {% block meta %}
+    {% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'theblog/css/base.css' %}">
+    <link rel="icon" href="{% static 'theblog/images/axin.jpg' %}" type="image/x-icon">
+    {% block link %}
+    {% endblock %}
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Charmonman:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="menubar__navibar">
+                <li><a href="/">Cu Xin Shop</a></li>
+                <li><a href="{% url 'theblog:list_article_with_tag' 'chuyendemtrua' %}">Chuyện đêm trưa</a></li>
+                <li><a href="{% url 'theblog:list_article_with_tag' 'thoidihoc' %}">Thời đi học</a></li>
+                <li><a href="{% url 'theblog:list_article_with_tag' 'chuyencoding' %}">Chuyện Coding</a></li>
+                <li><a href="{% url 'theblog:list_article_with_tag' 'tuky' %}">Tự kỷ</a></li>
+                <li><a href="{% url 'theblog:list_article' %}">Tất cả</a></li>
+                <li><a href="{% url 'theblog:list_tag' %}">Tag Story</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% block main %}
+
+    {% endblock %}
+    <footer>
+        <div class="copyright">
+            <p class="copyright__brand">Cu Xin © 2020</p>
+            <p class="copyright__info">bản quyền thuộc về Xin <span class="copyright__line">và những người bạn</span></p>
+        </div>
+    </footer>
+{% block script %}
+{% endblock %}
+</body>
+
+</html>

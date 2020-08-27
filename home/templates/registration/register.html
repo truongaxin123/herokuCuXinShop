@@ -1,0 +1,53 @@
+{% extends 'home/base_form.html '%}
+{% load static %}
+
+{% block title %}
+Đăng ký | Cu Xin Shop
+{% endblock %}
+
+{% block meta %}
+<meta name="Description" content="Đăng ký ở đây">
+{% endblock %}
+
+{% block link %}
+{% endblock %}
+
+{% block title_form %}
+Cu Xin Shop
+{% endblock %}
+
+{% block subtitle_form %}
+Đăng ký
+{% endblock %}
+
+{% block main %}
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form__row">
+        <label for="{{ field.id_for_label }}" class="form__label">{{ field.label }}</label>
+        {% if field.errors %}
+        <ul class="form__error">
+            {% for error in field.errors %}
+            <li>{{ error|escape }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <div class="form__field">
+            {{ field }}
+        </div>
+    </div>
+    {% endfor %}
+    <input type="submit" value="đăng ký" class="button">
+</form>
+<section class="help-text">
+    <ul>
+        {% for field in form %}
+        {% if field.help_text %}
+        <li>{{ field.label }}: {{ field.help_text }}</li>
+        {% endif %}
+        {% endfor %}
+        <li></li>
+    </ul>
+</section>
+{% endblock %}

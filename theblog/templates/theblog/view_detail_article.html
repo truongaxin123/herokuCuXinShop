@@ -1,0 +1,146 @@
+{% extends "theblog/base.html" %}
+{% load static %}
+
+{% block title %}
+{{ article.title }} | Cu Xin Shop
+{% endblock %}
+
+{% block meta %}
+<meta name="Description"
+    content="Bài viết {{ article.title }} thuộc thể loại {{ tag_with_view_highest.tag_full_name }}: {{ article.content|striptags|safe|truncatewords:125 }}">
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'theblog/css/view_detail_article.css' %}">
+<link rel="stylesheet" href="{% static 'theblog/css/comment.css' %}">
+<link
+    href="https://fonts.googleapis.com/css2?family=Athiti:wght@300&family=Cormorant+Garamond&family=Pattaya&family=Questrial&display=swap"
+    rel="stylesheet">
+{% endblock%}
+
+{% block main %}
+<article>
+    <header class="header">
+        <div class="article__tag">
+            <ul>
+                {% for tag in article.tags.all %}
+                <li><a href="{% url 'theblog:list_article_with_tag' tag.tag_name %}">#{{tag.tag_name}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="header__title">
+            <h1>{{ article.title }}</h1>
+        </div>
+        <div class="header__timepub">
+            <p>Public time | <time
+                    datetime="{{ article.pub_date|date:'Y-m-d H:i' }}">{{ article.pub_date|date:'H:i d-m-Y' }}</time> |
+                View {{ article.view }}</p>
+        </div>
+    </header>
+    <section class="article-detail">
+        <main>{{ article.content|safe }}</main>
+    </section>
+    <aside class="active-button">
+        <a href="{% url 'theblog:detail_article' previous_article.slug %}" class="button">
+            < PREVIOUS</a>
+                <a onclick="moveToTop()" class="button">MOVE TO TOP</a>
+                <a href="{% url 'theblog:detail_article' next_article.slug %}" class="button">NEXT ></a>
+    </aside>
+</article>
+
+{% if user.is_authenticated %}
+<section id='leave-comment' class="leave-comment">
+    <p id='leave-comment__title' class="leave-comment__title">Suy nghĩ của bạn về bài viết {{ article.title }}</p>
+    <form id='comment-form' action="{% url 'theblog:detail_article' article.slug %}" method="POST">
+        {% csrf_token %}
+        <div id='leave-comment__textbox' class="leave-comment__textbox">{{ comment_form.content }}</div>
+        <input id='button-comment' class='button' type="submit" value="Bình luận" />
+    </form>
+</section>
+{% endif %}
+
+<section class="comment">
+    <div class="comment__header">
+        <p>{{ article.get_number_comment }} Comments</p>
+    </div>
+    <div class="comment__container">
+        {% for comment in article.get_comment_latest %}
+        <div class="comment__cmt">
+            <div class="comment__info">
+                <p class="comment__info__username">{{ comment.author.first_name }} {{ comment.author.last_name }}</p>
+                <p class="comment__info__datepub">{{ comment.date|date:'d/m/Y H:i A' }}</p>
+            </div>
+            <div class="comment__content">
+                <p class="comment__content__cnt">
+                    {{ comment.content }}
+                </p>
+            </div>
+        </div>
+        <div class="clear"></div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+
+{% block script %}
+<script>
+
+    function moveToTop() {
+        document.documentElement.scrollTop = 0;
+    }
+
+    function commentFocus() {
+        let leaveCommentSection = document.getElementById('leave-comment');
+        leaveCommentSection.style.backgroundColor = 'rgb(22, 22, 22)';
+
+        let title = document.getElementById('leave-comment__title');
+        title.style.color = 'white';
+
+        let buttonSubmit = document.getElementById('button-comment');
+        buttonSubmit.style.border = '1px solid white';
+        buttonSubmit.style.color = 'white';
+        buttonSubmit.style.backgroundColor = 'rgb(22, 22, 22)';
+        buttonSubmit.setAttribute("onmouseover","changeHoverBehavior(this)")
+        buttonSubmit.setAttribute("onmouseout","changeHoverOutBehavior(this)")
+
+        document.body.style.backgroundColor = 'black';
+    }
+
+    function commentFocusOut() {
+        let leaveCommentSection = document.getElementById('leave-comment');
+        leaveCommentSection.style.backgroundColor = 'inherit';
+        let title = document.getElementById('leave-comment__title');
+        title.style.color = 'inherit'
+
+        document.body.style.backgroundColor='inherit'
+
+        let buttonSubmit = document.getElementById('button-comment');
+        buttonSubmit.style.border = '1px solid black';
+        buttonSubmit.style.color = 'black';
+        buttonSubmit.style.backgroundColor = 'white';
+        buttonSubmit.setAttribute("onmouseover","pastOfThisElementHover(this)")
+        buttonSubmit.setAttribute("onmouseout","pastOfThisElementHoverOut(this)")
+    }
+
+    function changeHoverBehavior(ele) {
+        ele.style.backgroundColor = 'white';
+        ele.style.color = 'black';
+    }
+
+    function changeHoverOutBehavior(ele) {
+        ele.style.backgroundColor = 'inherit';
+        ele.style.color = 'white';
+    }
+
+    function pastOfThisElementHover(ele) {
+        ele.style.backgroundColor = "black";
+        ele.style.color = "white";
+    }
+
+    function pastOfThisElementHoverOut(ele) {
+        ele.style.backgroundColor = "inherit";
+        ele.style.color = "inherit";
+    }
+
+</script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block meta %}
+    {% endblock %}
+
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <link rel="icon" href="{% static 'home/images/axin.jpg' %}" >
+    <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'home/css/base_form.css' %}">
+    {% block link %}
+    {% endblock %}
+</head>
+
+<body>
+    <section class="main">
+        <h1 class="title">{% block title_form %}{% endblock %}</h1>
+        <p class="subtitle">{% block subtitle_form %}{% endblock %}</p>
+        {% block main %}
+        {% endblock %}
+    </section>
+    {% block script %}
+    {% endblock %}
+
+</body>
+
+</html>

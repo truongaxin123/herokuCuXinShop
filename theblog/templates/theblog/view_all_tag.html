@@ -1,0 +1,33 @@
+{% extends "theblog/base.html" %}
+{% load static %}
+
+{% block title %}
+Cửa hàng Tag | Cu Xin Shop
+{% endblock%}
+
+{% block meta %}
+<meta name="Description" content="Đây là nơi chứa tất cả các tag xuất hiện trong Cu Xin Shop.">
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'theblog/css/view_all_tag.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+    <section class="overview">
+        <p>"Tôi đang cố gắng mang lại mọi thứ thật là sâu sắc</p>
+        <p>Như những cái đắng hàn gắn trên những nhát cắt</p>
+        <p>Đôi khi bạn lại không chắc chắn vì thế đừng có thắc mắc."</p>
+    </section>
+    <section class="tag-container">
+        {% for tag in tags %}
+            <a href="{% url 'theblog:detail_tag' tag.tag_name %}" class="tag tag__text">#{{ tag.tag_name }}</a>
+        {% endfor %}
+    </section>
+    <section class="overview">
+        <p>"Có thể tại đây bạn tìm được những quá khứ đã mất</p>
+        <p>Đôi khi là một nụ cười nắng mai của ai đó</p>
+        <p>Click vào nó để xem thêm những câu chuyện bên lề"</p>
+    </section>
+{% endblock%}

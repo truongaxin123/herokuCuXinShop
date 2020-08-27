@@ -1,0 +1,90 @@
+html {
+    scroll-behavior: smooth;
+}
+
+section, .header {
+    margin-top: 77px;
+}
+
+.header {
+    text-align: center;
+}
+
+.article__tag li {
+    display: inline-block;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 40px;
+    margin-top: 17px;
+}
+
+.article__tag a {
+    text-decoration: none;
+}
+
+.header__title {
+    font-family: 'Pattaya', sans-serif;
+    font-size: 77px;
+}
+
+
+.header__timepub {
+    font-family: 'Athiti', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.article-detail {
+    margin-top: 77px;
+    padding: 0 97px;
+    text-align: justify;
+}
+
+.article-detail p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+}
+
+.article-detail img {
+    height: 67px;
+    margin: 37px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button {
+    margin-top: 17px;
+    padding: 10px 20px;
+    letter-spacing: 2px;
+    font-size: 15px;
+    width: 177px;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid black;
+    font-family: 'Raleway', sans-serif;
+    color: black;
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+.button:hover {
+    background-color: black;
+    color: white;
+}
+
+.active-button {
+    text-align: center;
+}
+
+aside {
+    margin-top: 77px;
+}
+
+footer {
+    margin-top: 77px;
+}

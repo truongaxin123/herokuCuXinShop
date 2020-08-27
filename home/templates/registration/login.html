@@ -1,0 +1,45 @@
+{% extends 'home/base_form.html '%}
+{% load static %}
+
+{% block title %}
+Đăng nhập | Cu Xin Shop
+{% endblock %}
+
+{% block meta %}
+<meta name="Description" content="Đăng ký ở đây">
+{% endblock %}
+
+{% block link %}
+{% endblock %}
+
+{% block title_form %}
+Cu Xin Shop
+{% endblock %}
+
+{% block subtitle_form %}
+Đăng nhập
+{% endblock %}
+
+{% block main %}
+{% if form.non_field_errors %}
+
+{% if form.non_field_errors %}
+<p class="errornote">
+    Có cái đéo gì đó sai sai rồi!!!
+</p>
+{% endif %}
+
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form__row">
+        <label for="{{ field.id_for_label }}" class="form__label">{{ field.label }}</label>
+        <div class="form__field">
+            {{ field }}
+        </div>
+    </div>
+    {% endfor %}
+    <input type="submit" value="đăng nhập" class="button">
+</form>
+{% endblock %}

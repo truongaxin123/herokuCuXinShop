@@ -1,0 +1,61 @@
+{% extends "theblog/base.html" %}
+{% load static %}
+
+{% block title %}
+Chủ Shop: Trương A Xin
+{% endblock %}
+
+{% block meta %}
+<meta name="Description" content="Profile của Trương A Xin">
+{% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/view_detail_article.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Athiti:wght@300&family=Cormorant+Garamond&family=Pattaya&family=Questrial&display=swap" rel="stylesheet">
+{% endblock%}
+
+{% block main %}
+<article>
+    <header class="header">
+        <div class="article__tag">
+            <ul>
+                <li>#me</li>
+            </ul>
+        </div>
+        <div class="header__title">
+            <h1>Trương A Xin</h1>
+        </div>
+        <div class="header__timepub">
+            <p>Birthday | <time datetime="2000-11-15">15-11-2000</time> | Age 20</p>
+        </div>
+    </header>
+    <section class="article-detail">
+        <main>
+            <p>
+                Xin chào các bạn, mình là Trương A Xin - chủ shop của Cu Xin Shop. Mình yêu thích lập trình là vào khoảng cuối năm lớp
+                10 đầu năm 11, khi bố mình đã mua cho mình một con Thinkpad cũ Core i3 RAM 4G giá tầm 3 triệu. Nếu trước đó, bố mình không
+                 mua cho mình con lap thì có lẽ bây giờ mình đã ngồi đâu đó trong mấy trường đại học kiến trúc, hoặc ở khoa kiến trúc của một trường
+                 nào đó ở Đà Nẵng.<br><br>
+                Nhưng bây giờ, mình đang ngồi trên ghế của trường Đại học Duy Tân. Là một đứa thích lập trình, mình hay đi comment dạo trên mấy
+                 group công nghệ trên Facebook như J2TEAM, Kteam, VOZ,... <br><br>
+                Ngôn ngữ chính hiện tại của mình là Python. Định hướng chính của mình là C# ASP.Net, cùng với đó là Django. Ngoài ra hiện tại mình còn
+                 thực hiện dịch các tài liệu về chuyên ngành, các thư viện. Nơi mình hoạt động nhiều nhất là HowKteam. Cùng với đó là hành trình đi tìm bạn
+                gái vô tận chưa có hồi kết của mình, mong có đường thằng nào đó cắt ngang đời mình để mình bớt mệt mỏi 🤣🤣🤣.
+            </p>
+        </main>
+    </section>
+    <aside class="active-button">
+        <a onclick="moveToTop()" class="button">MOVE TO TOP</a>
+        <a href=""></a>
+    </aside>
+</article>
+{% endblock%}
+
+{% block script %}
+    <script>
+        function moveToTop() {
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+{% endblock %}
+
