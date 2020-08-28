@@ -12,3 +12,4 @@ sqlparse==0.3.1
 Unidecode==1.1.1
 urllib3==1.25.10
 whitenoise==5.0.1
+psycopg2-2.8.5
