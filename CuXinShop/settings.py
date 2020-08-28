@@ -141,4 +141,4 @@ LOGIN_URL = '/login'     # this should coinside with url pattern of login view
 LOGOUT_URL = '/logout'   # same but for logout view
 LOGIN_REDIRECT_URL = '/#sale'
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
