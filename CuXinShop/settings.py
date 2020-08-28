@@ -26,7 +26,7 @@ SECRET_KEY = '14z5ey+hya$4sn*#u(i9v#-xo%knyjd3s94j8=d!qt#_)9vo3%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://cuxinshop.herokuapp.com/']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'theblog.apps.TheblogConfig',
-    'home.apps.HomeConfig',
+    'theblog',
+    'home',
     'ckeditor',
     'ckeditor_uploader',
 ]
@@ -126,7 +126,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = os.path.join('CuXinShop/', 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
@@ -138,3 +138,5 @@ AUTH_USER_MODEL = 'auth.User'
 LOGIN_URL = '/login'     # this should coinside with url pattern of login view
 LOGOUT_URL = '/logout'   # same but for logout view
 LOGIN_REDIRECT_URL = '/#sale'
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
